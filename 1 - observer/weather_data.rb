@@ -1,19 +1,19 @@
 require 'observer'
 
 class WeatherData
-	include Observable
+  include Observable
 
-	attr_reader :temperature, :humidity, :pressure
+  attr_reader :temperature, :humidity, :pressure
 
-	def measurements_changed
-		changed
-		notify_observers(@temperature, @humidity, @pressure)
-	end
+  def measurements_changed
+    changed
+    notify_observers(@temperature, @humidity, @pressure)
+  end
 
-	def set_measurements(temp, hum, press)
-		@temperature=temp
-		@humidity=hum
-		@pressure=press
-		measurements_changed
-	end
+  def set_measurements(temp, hum, press)
+    @temperature=temp
+    @humidity=hum
+    @pressure=press
+    measurements_changed
+  end
 end
