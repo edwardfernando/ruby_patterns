@@ -9,8 +9,8 @@ class SimpleFactoryTest < Test::Unit::TestCase
 
   def test_factory
     factory = PizzaFactory.new
-    assert(factory.createPizza("cheese").instance_of(CheesePizza))
-    assert(factory.createPizza("veggie").instance_of(VeggiePizza))
+    assert(factory.create_pizza("cheese").instance_of(CheesePizza))
+    assert(factory.create_pizza("veggie").instance_of(VeggiePizza))
   end
 
   def test_store_init
@@ -21,8 +21,8 @@ class SimpleFactoryTest < Test::Unit::TestCase
 
   def test_order_pizza
     store = PizzaStore.new(PizzaFactory.new)
-    assert(store.orderPizza("cheese").instance_of(CheesePizza))
-    assert(store.orderPizza("veggie").instance_of(VeggiePizza))
+    assert(store.order_pizza("cheese").instance_of(CheesePizza))
+    assert(store.order_pizza("veggie").instance_of(VeggiePizza))
   end
 
 end
