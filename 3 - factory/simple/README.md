@@ -15,7 +15,7 @@ own methods: prepare, bake, cut, and box.
 ## Solution
 
 Use a Simple Factory!  This isn't a real pattern.  Instead of letting the
-orderPizza method determine which pizza to create, we pull that logic out into
+order\_pizza method determine which pizza to create, we pull that logic out into
 a simple factory class.
 
 ### Common interface
@@ -33,12 +33,13 @@ Methods can be overridden here if needed.
 
 ### SimpleFactory
 
-This PizzaFactory class contains only one method, createPizza, that returns a
+This PizzaFactory class contains only one method, create\_pizza, that returns a
 Pizza.  The method takes a string argument which is used to determine which
 type of pizza to instantiate.
 
 ### Calling the factory
 
 Finally, the PizzaStore class has an initializer that takes the PizzaFactory
-and stores it in a variable.  Then the orderPizza method takes a string and
-passes it to the PizzaFactory to get the Pizza.
+and stores it in a variable.  Then the order\_pizza method takes a string and
+passes it to the PizzaFactory to create the Pizza, prepares, bakes, boxes, cuts
+and returns the pizza.

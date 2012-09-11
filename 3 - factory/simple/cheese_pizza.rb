@@ -1,15 +1,15 @@
 class CheesePizza < Pizza
 
   def prepare
+    puts "Add cheese"
   end
 
   def bake
+    puts "Bake cheese"
   end
 
   def cut
-  end
-
-  def box
+    puts "Cut into squares"
   end
 
 end

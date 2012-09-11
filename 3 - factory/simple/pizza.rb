@@ -10,6 +10,7 @@ class Pizza
   end
 
   def box
+    puts "Box pizza"
   end
 
 end
