@@ -15,8 +15,8 @@ own methods: prepare, bake, cut, and box.
 ## Solution
 
 Use a Simple Factory!  This isn't a real pattern.  Instead of letting the
-order\_pizza method determine which pizza to create, we pull that logic out into
-a simple factory class.
+order\_pizza method determine which pizza to create, we **pull that logic out into
+a simple factory class**.
 
 ### Common interface
 
