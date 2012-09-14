@@ -26,11 +26,12 @@ need to add more conditionals to the create\_pizza method in the factory.
 
 ### Product Interface
 
-Define Pizza base class.  Roby doesn't have abstract classes, so I'll need to
-read up a bit more to see if this base class is really needed.
+Define Pizza base class.  Ruby doesn't have abstract classes, so I'll need to
+read up a bit more to see if this base class is really needed.  The base class
+is nice because it provides common behaviour for all Concrete Products (prepare,
+bake, cut, box).
 
-The Pizza base class has a name, dough, sause, and a list of toppings.  It also
-have prepare, bake, cut, and box methods as before.
+The Pizza base class has a name, dough, sauce, and an Array of toppings.
 
 ### Concrete Products
 
