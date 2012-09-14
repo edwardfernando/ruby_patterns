@@ -31,13 +31,13 @@ class with some methods that can be overridden by subclasses.
 Create classes for all the different pizzas, all of which extend the Pizza class.
 Methods can be overridden here if needed.
 
-### SimpleFactory
+### Simple Factory
 
 This PizzaFactory class contains only one method, create\_pizza, that returns a
 Pizza.  The method takes a string argument which is used to determine which
 type of pizza to instantiate.
 
-### Calling the factory
+### Client
 
 Finally, the PizzaStore class has an initializer that takes the PizzaFactory
 and stores it in a variable.  Then the order\_pizza method takes a string and
