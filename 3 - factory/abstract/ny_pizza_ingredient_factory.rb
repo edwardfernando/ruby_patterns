@@ -18,7 +18,7 @@ class NyPizzaIngredientFactory
   end
 
   def create_veggies
-    ["garlic", "onion", "mushrooms", "red peppers"]
+    ["onion", "mushrooms", "red peppers"]
   end
 
   def create_pepperoni

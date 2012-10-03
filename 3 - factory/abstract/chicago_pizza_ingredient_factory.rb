@@ -18,7 +18,7 @@ class ChicagoPizzaIngredientFactory
   end
 
   def create_veggies
-    ["black olives", "spinach", "egg plant"]
+    ["black olives", "spinach", "eggplant"]
   end
 
   def create_pepperoni

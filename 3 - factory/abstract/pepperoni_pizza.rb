@@ -1,6 +1,6 @@
 require './pizza.rb'
 
-class CheesePizza < Pizza
+class PepperoniPizza < Pizza
 
   def initialize(factory)
     @factory = factory
@@ -11,5 +11,7 @@ class CheesePizza < Pizza
     @dough = @factory.create_dough
     @sauce = @factory.create_sauce
     @cheese = @factory.create_cheese
+    @pepperoni = @factory.create_pepperoni
+    @veggies = @factory.create_veggies
   end
 end
