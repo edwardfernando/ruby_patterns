@@ -87,7 +87,7 @@ the Stereo class to implement a command to turn the stereo set to play the CD
 at a certain volume level.
 
 ```ruby
-require './stereo
+require './stereo'
 
 class StereoOnWithCdCommand
 
@@ -147,3 +147,13 @@ end
 The client is responsible for creating the concrete commands and assigning them
 a receiver.  In the context of the remote control device, we make a a
 RemoteLoader class to perform these tasks.
+
+### Other goodies
+
+We were also supposed to add support for the global Undo button.  So each
+command class needs an undo method designed to reverse the execute method.
+
+Then, the remote control needs to track internally the most recent command
+called.  This attribute should be updated with each button pushed.  Last add
+another method to link the undo button event with the undo method of the last
+run command.
