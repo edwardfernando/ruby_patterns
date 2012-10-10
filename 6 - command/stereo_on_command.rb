@@ -1,6 +1,6 @@
 require './stereo'
 
-class StereoCommand
+class StereoOnCommand
 
   def initialize(stereo)
     @stereo = stereo

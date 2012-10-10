@@ -19,16 +19,16 @@ class Stereo
     def off
     end
 
-    def setCd
+    def set_cd
     end
 
-    def setDvd
+    def set_dvd
     end
 
-    def setRadio
+    def set_radio
     end
 
-    def setVolume
+    def set_volume(level)
     end
 end
 ```
@@ -36,7 +36,7 @@ end
 while the Thermostat class looks like this:
 ```ruby
 class Thermostat
-   def setTemperature
+   def set_temperature(degree)
    end
 end
 ```
@@ -82,14 +82,35 @@ wish to invoke.
 For example, we would define separate concrete commands for the on and off
 methods of the Stereo.
 
-### Client
+We can also get a little more complicated.  The book uses other methods from
+the Stereo class to implement a command to turn the stereo set to play the CD
+at a certain volume level.
 
-TODO
+```ruby
+require './stereo
+
+class StereoOnWithCdCommand
+
+    def initialize(stereo)
+        @stereo = stereo
+    end
+
+    def execute
+        @stereo.on
+        @stereo.set_cd
+        @stereo.set_volume(11)
+    end
+
+end
+```
 
 ### Receiver
 
 The classes were provided by the vendors.  Each instance of any of the classes is
 potentially a receiver.
+
+This example doesn't address the specifics of how the
+different instances are created.  It's not important to the pattern.
 
 ### Invoker
 
@@ -102,8 +123,8 @@ on/off commands come paired, so the method definition to set a command looks
 like:
 ```ruby
 def set_command(slot, on_command, off_command)
-    on_commands[slot] = on_command
-    off_commands[slot] = off_command
+    @on_commands[slot] = on_command
+    @off_commands[slot] = off_command
 end
 ```
 
@@ -113,10 +134,16 @@ the off commands.
 
 ```ruby
 def on_button(slot)
-    on_commands[slot].execute
+    @on_commands[slot].execute
 end
 
 def off_button(slot)
-    off_commands[slot].execute
+    @off_commands[slot].execute
 end
 ```
+
+### Client
+
+The client is responsible for creating the concrete commands and assigning them
+a receiver.  In the context of the remote control device, we make a a
+RemoteLoader class to perform these tasks.
