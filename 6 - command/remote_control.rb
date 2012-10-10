@@ -22,4 +22,11 @@ class RemoteControl
   def undo_button
     @last_command.undo
   end
+
+  def to_s
+    puts "------------Remote Control--------------"
+    puts @on_commands.to_s
+    puts @off_commands.to_s
+    puts @last_command
+  end
 end
