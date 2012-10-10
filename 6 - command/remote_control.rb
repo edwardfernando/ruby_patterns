@@ -11,9 +11,15 @@ class RemoteControl
 
   def on_button(slot)
     @on_commands[slot].execute
+    @last_command = @on_commands[slot]
   end
 
-  def off_buttons(slot)
+  def off_button(slot)
     @off_commands[slot].execute
+    @last_command = @off_commands[slot]
+  end
+
+  def undo_button
+    @last_command.undo
   end
 end

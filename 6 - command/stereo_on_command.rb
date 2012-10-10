@@ -9,5 +9,9 @@ class StereoOnCommand
   def execute
     @stereo.on
   end
+  
+  def undo
+    @stereo.off
+  end
 
 end
