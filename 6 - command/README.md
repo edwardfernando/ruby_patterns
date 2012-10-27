@@ -154,6 +154,67 @@ We were also supposed to add support for the global Undo button.  So each
 command class needs an undo method designed to reverse the execute method.
 
 Then, the remote control needs to track internally the most recent command
-called.  This attribute should be updated with each button pushed.  Last add
+called.  This attribute should be updated with each button pushed.  Last, add
 another method to link the undo button event with the undo method of the last
 run command.
+
+## A more complicated command
+
+Implemented he command pattern with an undo functionality is easy for devices
+with only two states, on and off.  The book goes through the scenario with a
+multistate ceiling fan.  It has 4 states: off, low, medium, and high.  Methods
+might look like
+
+```ruby
+class Fan
+
+   HIGH = 3
+   MED = 2
+   LOW = 1
+   OFF = 0
+
+   attr_reader :speed
+
+   def high
+      @speed = HIGH
+   end
+
+   def medium
+      @speed = MED
+   end
+
+   def low
+      @speed = LOW
+   end
+
+   def off
+      @speed = OFF
+   end
+
+end
+```
+
+The book example defines a new command class for each of the different states.
+To deal with the undo, read the fan's current speed in each execute method and
+store it in a local var, @old_speed.  Then, all the undo method needs to do is
+switch on the value of @old_speed and set the fans speed accordingly.
+
+The book sample doesn't do anything fancier with the remote control for fans.
+There are no "increase speed" or "decrease speed" commands.  Each slot in the
+remote gets assigned pair of buttons, one of which is always the off button for
+the fan.
+
+## Macro Commands
+
+Lets make a command that can perform multiple actions with the push of only a
+single button.
+
+Define a new class, MacroCommand, that takes an array of individual commands in
+its initialize method.
+It must still have an execute and undo method to conform to the Command
+interface.  They iterate over all the single commands and execute or undo each
+one.
+
+To make this play nice with the on/off button setup, instantiate two
+MacroCommands in the remote loader.  One will be in charge of turning stuff on,
+the other will turn the same stuff off.

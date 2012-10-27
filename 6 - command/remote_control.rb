@@ -24,9 +24,15 @@ class RemoteControl
   end
 
   def to_s
-    puts "------------Remote Control--------------"
-    puts @on_commands.to_s
-    puts @off_commands.to_s
-    puts @last_command
+    s = "------------Remote Control--------------\n"
+    s << "On commands: [\n"
+    s << @on_commands.join(",\n")
+    s << "\n]\n"
+    s << "Off commands: [\n"
+    s << @off_commands.join(",\n")
+    s << "\n]\n"
+    s << "Last command: [\n"
+    s << @last_command.to_s << "\n"
+    s
   end
 end

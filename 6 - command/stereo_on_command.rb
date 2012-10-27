@@ -14,4 +14,8 @@ class StereoOnCommand
     @stereo.off
   end
 
+  def to_s
+    "Stereo On Command for stereo #{@stereo.object_id}"
+  end
+
 end

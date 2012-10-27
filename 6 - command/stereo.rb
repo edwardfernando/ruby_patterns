@@ -16,4 +16,5 @@ class Stereo
 
   def setVolume
   end
+
 end
