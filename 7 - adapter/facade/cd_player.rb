@@ -1,7 +1,5 @@
-class Tuner
-
-  attr_accessor :frequency
-  attr_reader :power, :band
+class CdPlayer
+  attr_reader :power
 
   def initialize
     @power = :off
@@ -15,12 +13,17 @@ class Tuner
     @power = :off
   end
 
-  def set_am
-    @band = :am
+  def eject
   end
 
-  def set_fm
-    @band = :fm
+  def play
+  end
+
+  def pause
+  end
+
+  def stop
   end
 
 end
+
