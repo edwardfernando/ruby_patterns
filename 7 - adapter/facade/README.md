@@ -51,7 +51,9 @@ These are classes representing each piece of the complete theatre system.
 ### Facade
 
 The facade exposes a few high level methods to the user, such as watch\_movie,
-end\_movie, play\_cd, stop\_cd, etc.
+end\_movie, play\_cd, stop\_cd, etc.  This way, a client only has to use the
+facade to perform complex and multiple operations on the components, instead
+of having to call each component directly.
 
 It wraps instances of the subsystem components, passing them in through the
 initialize method.  This is similar to how the adapter pattern wraps the
